@@ -30,9 +30,7 @@ while exit_loop:
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
 # Формула ИМТ: вес разделить на (рост в квадрате)
 def bmi_calculation(weight, height):
-    """
-    Функция для расчета ИМТ
-    """
+    """Функция для расчета ИМТ"""
     return round(weight / (height ** 2), 1)
 
 
@@ -41,9 +39,7 @@ bmi = bmi_calculation(user_weight, user_height)
 
 # Подсчет воды: вес * 30 мл
 def water_needed(weight):
-    """
-    Функция расчета воды для синтаксического сахара
-    """
+    """Функция расчета воды для синтаксического сахара"""
     water_ml = weight * 30
     return round(water_ml / 1000, 2)
 
