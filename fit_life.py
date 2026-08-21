@@ -29,27 +29,29 @@ while exit_loop:
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
 # Формула ИМТ: вес разделить на (рост в квадрате)
-# TODO: Рассчитай bmi (Индекс массы тела)
 def bmi_calculation(weight, height):
-    bmi = round(weight / (height ** 2), 1)
-    return bmi
+    """
+    Функция для расчета ИМТ
+    """
+    return round(weight / (height ** 2), 1)
 
 
 bmi = bmi_calculation(user_weight, user_height)
 
 
 # Подсчет воды: вес * 30 мл
-# TODO: Рассчитай water_needed
 def water_needed(weight):
+    """
+    Функция расчета воды для синтаксического сахара
+    """
     water_ml = weight * 30
-    water_l = round(water_ml / 1000, 2)
-    return water_l
+    return round(water_ml / 1000, 2)
 
 
 water_l = water_needed(user_weight)
 
 # 4. Вывод красивого результата
-# TODO: Используй f-строку, чтобы вывести приветствие, например: "Привет, Иван!"
-# TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
-print(f"Привет, {user_name}!\nВаш возраст: {user_age}\nВаш индекс массы тела: {bmi}\nВаша норма потребления воды в сутки: {water_l} литров\n")
+print(f"Привет, {user_name}!\nВаш возраст: {user_age}\n\
+Ваш индекс массы тела: {bmi}\n\
+Ваша норма потребления воды в сутки: {water_l} литров\n")
 print("Расчет окончен. Будьте здоровы!")
