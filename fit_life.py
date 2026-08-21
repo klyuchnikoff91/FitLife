@@ -2,32 +2,28 @@
 
 
 # 1. Знакомство
-# TODO: Спроси у пользователя имя и сохрани в переменную user_name
 user_name = input('Как вас зовут?\n')
-# TODO: Спроси возраст и сохрани в переменную user_age (не забудь преобразовать в число)
 exit_loop = True
 while exit_loop:
     try:
         user_age = int(input('Введите ваш возраст:\n'))
         exit_loop = False
-    except ValueError, TypeError:
+    except ValueError:
         print('Некорректное значение! Повторите ввод')
 # 2. Сбор данных
-# TODO: Запроси вес (в кг) и сохрани в user_weight (тип float)
 exit_loop = True
 while exit_loop:
     try:
         user_weight = float(input('Введите ваш вес, кг:\n'))
         exit_loop = False
-    except ValueError, TypeError:
+    except ValueError:
         print('Некорректное значение! Повторите ввод')
-# TODO: Запроси рост (в метрах, например 1.75) и сохрани в user_height (тип float)
 exit_loop = True
 while exit_loop:
     try:
         user_height = float(input('Введите ваш рост, в метрах:\n'))
         exit_loop = False
-    except ValueError, TypeError:
+    except ValueError:
         print('Некорректное значение! Повторите ввод')
 
 
@@ -55,5 +51,5 @@ water_l = water_needed(user_weight)
 # 4. Вывод красивого результата
 # TODO: Используй f-строку, чтобы вывести приветствие, например: "Привет, Иван!"
 # TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
-print(f"Привет, {user_name}! Ваш возраст {user_age}, ваш индекс массы тела {bmi}, ваша норма потребления воды в сутки {water_l} литров")
+print(f"Привет, {user_name}!\nВаш возраст: {user_age}\nВаш индекс массы тела: {bmi}\nВаша норма потребления воды в сутки: {water_l} литров\n")
 print("Расчет окончен. Будьте здоровы!")
