@@ -2,27 +2,41 @@
 
 
 # 1. Знакомство
-user_name = input('Как вас зовут?\n')
-exit_loop = True
-while exit_loop:
+while True:
+    try:
+        user_name = input('Как вас зовут?\n').strip()
+        # Можно завести список допустимых имен, но словарь сюда не вместить
+        if not user_name:
+            raise ValueError
+        break
+    except ValueError:
+        print('Введите непустое имя')
+while True:
     try:
         user_age = int(input('Введите ваш возраст:\n'))
-        exit_loop = False
+        # Ограничим возраст с нуля, младенцы не в счет
+        if user_age <= 0:
+            raise ValueError
+        break
     except ValueError:
         print('Некорректное значение! Повторите ввод')
 # 2. Сбор данных
-exit_loop = True
-while exit_loop:
+while True:
     try:
         user_weight = float(input('Введите ваш вес, кг:\n'))
-        exit_loop = False
+        # Человек должен что-то весит, сверху не будем ограничивать
+        if user_weight <= 0:
+            raise ValueError
+        break
     except ValueError:
         print('Некорректное значение! Повторите ввод')
-exit_loop = True
-while exit_loop:
+while True:
     try:
         user_height = float(input('Введите ваш рост, в метрах:\n'))
-        exit_loop = False
+        # Есть деление на нуль в функции, границы роста человека
+        if (user_height <= 0) or (user_height > 3):
+            raise ValueError
+        break
     except ValueError:
         print('Некорректное значение! Повторите ввод')
 
@@ -31,17 +45,24 @@ while exit_loop:
 # Формула ИМТ: вес разделить на (рост в квадрате)
 def bmi_calculation(weight, height):
     """Функция для расчета ИМТ"""
-    return round(weight / (height ** 2), 1)
+    try:
+        return round(weight / (height ** 2), 1)
+    except ZeroDivisionError:
+        print('YOU SHALL NOT PASS')
 
 
 bmi = bmi_calculation(user_weight, user_height)
 
 
+WATER_PER_KG = 30
+MLITER_TO_LITER = 1000
+
+
 # Подсчет воды: вес * 30 мл
 def water_needed(weight):
     """Функция расчета воды для синтаксического сахара"""
-    water_ml = weight * 30
-    return round(water_ml / 1000, 2)
+    water_ml = weight * WATER_PER_KG
+    return round(water_ml / MLITER_TO_LITER, 2)
 
 
 water_l = water_needed(user_weight)
