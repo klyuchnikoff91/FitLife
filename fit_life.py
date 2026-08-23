@@ -1,6 +1,8 @@
 # Проект FitLife - MVP версия 1.0
 
 
+WATER_PER_KG = 30
+MLITER_TO_LITER = 1000
 # 1. Знакомство
 while True:
     try:
@@ -33,8 +35,7 @@ while True:
 while True:
     try:
         user_height = float(input('Введите ваш рост, в метрах:\n'))
-        # Есть деление на нуль в функции, границы роста человека
-        if (user_height <= 0) or (user_height > 3):
+        if user_height <= 0:
             raise ValueError
         break
     except ValueError:
@@ -52,10 +53,6 @@ def bmi_calculation(weight, height):
 
 
 bmi = bmi_calculation(user_weight, user_height)
-
-
-WATER_PER_KG = 30
-MLITER_TO_LITER = 1000
 
 
 # Подсчет воды: вес * 30 мл
